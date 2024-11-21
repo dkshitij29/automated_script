@@ -20,8 +20,7 @@ pip install numpy tensorflow scikit-learn matplotlib
 # Clone OAIC and submodules
 cd ~/
 git clone https://github.com/dkshitij29/oaic.git
-cd oaic
-git submodule update --init --recursive --remote
+
 
 # Install Kubernetes and Docker setup
 cd ~/oaic/RIC-Deployment/tools/k8s/bin
