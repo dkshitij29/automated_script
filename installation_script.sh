@@ -21,8 +21,13 @@ fi
 sudo apt update -y
 sudo apt install -y git vim tmux build-essential cmake libfftw3-dev libmbedtls-dev \
 libboost-program-options-dev libconfig++-dev libsctp-dev libtool autoconf gnuradio \
-python3-pip iperf3 libzmq3-dev nfs-common nginx docker.io kubectl helm
-snap install helm
+python3-pip iperf3 libzmq3-dev nfs-common nginx docker.io
+sudo snap install kubectl --classic
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
 
 # Clone OAIC and submodules
 cd ~/
